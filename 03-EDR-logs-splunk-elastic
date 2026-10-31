@@ -1,0 +1,72 @@
+# EDR, log sources, Splunk, and Elastic Stack
+
+Notes from the TryHackMe SOC Level 1 path, written in my own words. [Back to the main README](../README.md)
+
+## Contents
+
+- [EDR](#edr)
+- [Telemetry and log sources](#telemetry-and-log-sources)
+- [Detection rule examples](#detection-rule-examples)
+- [Splunk](#splunk)
+- [Elastic Stack](#elastic-stack)
+
+---
+
+## EDR
+
+Endpoint Detection and Response (EDR) is a security solution that protects endpoints (laptops, servers, and other devices) wherever they are.
+
+Its three main features:
+
+1. **Visibility:** context about what happens on the endpoint, such as file changes.
+2. **Detection:** spotting suspicious activity.
+3. **Response:** acting on a threat, such as isolating the host.
+
+How it compares with other tools:
+
+- EDR is a **host-level** solution. It does not replace network monitoring and does not see most network-level threats.
+- Antivirus (AV) mainly detects **signature-based** threats (known malware). EDR can also detect **behavior-based** threats (suspicious actions, even from unknown malware).
+
+## Telemetry and log sources
+
+**Telemetry** is the data an EDR agent collects from the endpoint. It works like a black box: it holds the details needed for investigation and detection.
+
+Two types of log sources:
+
+- **Host-centric logs:** activity on a device, for example PowerShell execution.
+- **Network-centric logs:** activity between devices, for example an SSH connection.
+
+## Detection rule examples
+
+A detection rule combines a log source, an event ID, and a condition.
+
+| Rule | Alert |
+|---|---|
+| Log source is `WinEventLog` AND Event ID is 104 | Event log cleared |
+| Log source is `WinEventLog` AND EventCode is 4688 AND `NewProcessName` contains `whoami` | `whoami` command execution detected |
+
+Things to remember:
+
+- Event ID 104 is logged when the **System** log is cleared. Clearing the **Security** log is Event ID 1102.
+- Event 4688 (process creation) is only logged if process creation auditing is enabled.
+- Clearing logs is a common way for attackers to hide their tracks, which is why it deserves an alert.
+
+## Splunk
+
+Splunk has three main components:
+
+1. **Forwarder:** a lightweight agent installed on the endpoint. It collects data and sends it to Splunk.
+2. **Indexer:** processes the incoming data. It parses and normalizes it into field-value pairs, categorizes it, and stores it as events so it is easy to search.
+3. **Search Head:** where users search the indexed data, using **SPL** (Search Processing Language).
+
+
+## Elastic Stack
+
+Elastic Stack is used to store, search, and visualize large amounts of data. It is now also used as a SIEM.
+
+Components:
+
+1. **Elasticsearch:** a search and analytics engine for JSON documents. It stores, analyzes, and correlates the data.
+2. **Logstash:** a data processing engine. It takes data from multiple sources, filters or normalizes it, and sends it to a destination.
+3. **Beats:** lightweight data shippers that collect data from endpoints and send it to the stack.
+4. **Kibana:** a web interface to analyze, investigate, and visualize data in real time.
