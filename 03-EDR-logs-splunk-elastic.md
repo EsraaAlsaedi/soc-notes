@@ -61,9 +61,9 @@ Splunk has three main components:
 
 **My practice:** I searched a sample VPN connections dataset in Splunk.
  
-![Splunk search 1](../images/splunk-1.png)
-![Splunk search 2](../images/splunk-2.png)
-![Splunk search 3](../images/splunk-3.png)
+![Splunk search 1](./images/splunk-1.png)
+![Splunk search 2](./images/splunk-2.png)
+![Splunk search 3](./images/splunk-3.png)
  
 ## Elastic Stack
 
@@ -78,5 +78,5 @@ Components:
 
 **My practice:** I built dashboards in Kibana.
  
-![Kibana dashboard 1](../images/elastic-1.png)
-![Kibana dashboard 2](../images/elastic-2.png)
+![Kibana dashboard 1](./images/elastic-1.png)
+![Kibana dashboard 2](./images/elastic-2.png)
