@@ -59,7 +59,12 @@ Splunk has three main components:
 2. **Indexer:** processes the incoming data. It parses and normalizes it into field-value pairs, categorizes it, and stores it as events so it is easy to search.
 3. **Search Head:** where users search the indexed data, using **SPL** (Search Processing Language).
 
-
+**My practice:** I searched a sample VPN connections dataset in Splunk.
+ 
+![Splunk search 1](../images/splunk-1.png)
+![Splunk search 2](../images/splunk-2.png)
+![Splunk search 3](../images/splunk-3.png)
+ 
 ## Elastic Stack
 
 Elastic Stack is used to store, search, and visualize large amounts of data. It is now also used as a SIEM.
@@ -70,3 +75,8 @@ Components:
 2. **Logstash:** a data processing engine. It takes data from multiple sources, filters or normalizes it, and sends it to a destination.
 3. **Beats:** lightweight data shippers that collect data from endpoints and send it to the stack.
 4. **Kibana:** a web interface to analyze, investigate, and visualize data in real time.
+
+**My practice:** I built dashboards in Kibana.
+ 
+![Kibana dashboard 1](../images/elastic-1.png)
+![Kibana dashboard 2](../images/elastic-2.png)
