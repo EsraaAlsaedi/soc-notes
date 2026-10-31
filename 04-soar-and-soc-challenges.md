@@ -1,6 +1,6 @@
 # SOC challenges and SOAR
 
-Notes from the TryHackMe SOC Level 1 path, written in my own words. [Back to the main README](../README.md)
+Notes from the TryHackMe SOC Level 1 path, written in my own words. [Back to the main README](./README.md)
 
 ## Contents
 
